@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameSmith UI Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>🧩 GameSmith UI Generator</h1>
+
+    <!-- File Upload -->
+    <section>
+      <h2>📂 Upload Your CSV Schema</h2>
+      <input type="file" id="csvFile" accept=".csv">
+      <button onclick="parseCSV()">Parse & Generate UI</button>
+    </section>
+
+    <!-- Prompt -->
+    <section>
+      <h2>🧠 Prompt the AI</h2>
+      <label for="promptSelector">Choose a schema:</label>
+      <select id="promptSelector">
+        <option value="">-- Choose Schema --</option>
+        <option value="items">Items</option>
+        <option value="player">Player</option>
+        <option value="inventory">Inventory</option>
+        <option value="monsters">Monsters</option>
+      </select>
+
+      <textarea id="userPrompt" placeholder="e.g., Create a loot panel with rarity color coding..."></textarea>
+      <button onclick="generateFromPrompt()">Generate UI from Prompt</button>
+    </section>
+
+    <!-- Output Preview -->
+    <section>
+      <h2>🔍 UI Preview</h2>
+      <div id="preview"></div>
+    </section>
+
+    <!-- Export -->
+    <section>
+      <h2>📤 Export</h2>
+      <button onclick="exportHTML()">Download HTML</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

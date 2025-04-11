@@ -1,0 +1,133 @@
+/* General Layout */
+body {
+  margin: 0;
+  padding: 20px;
+  background: url('dark_fantasy_bg.jpg') center center no-repeat;
+  background-size: cover;
+  font-family: 'Cinzel', serif;
+  color: #f0e6d2;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 960px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 40px #000;
+}
+
+h1, h2 {
+  font-family: 'UnifrakturCook', cursive;
+  text-shadow: 2px 2px 4px #000;
+  border-bottom: 2px solid #a52a2a;
+  padding-bottom: 5px;
+}
+
+input[type="file"], textarea, select, button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: #fff;
+  box-shadow: 0 0 10px #111;
+}
+
+button {
+  background-color: #7b1e1e;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #a52a2a;
+}
+
+#preview {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid #444;
+  border-radius: 8px;
+  min-height: 200px;
+}
+
+/* Rarity Colors */
+.common { color: #aaa; }
+.uncommon { color: #2ecc71; }
+.rare { color: #3498db; }
+.epic { color: #9b59b6; }
+.legendary { color: #f39c12; text-shadow: 0 0 5px #f39c12; }
+
+/* Tooltip Style */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #222;
+  color: #f0e6d2;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 0 12px #000;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Inventory Flex Grid */
+.inventory-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #444;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.6);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.item.equipped {
+  border: 2px solid gold;
+  box-shadow: 0 0 12px gold;
+}
+
+.item.empty {
+  opacity: 0.3;
+}
+
+/* Fantasy Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=UnifrakturCook:700&display=swap');
