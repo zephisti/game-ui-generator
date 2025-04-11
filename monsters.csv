@@ -1,0 +1,5 @@
+id,name,type,hp,attack,weakness,rarity
+m001,Goblin,Beast,50,10,Fire,Common
+m002,Undead Archer,Undead,75,15,Holy,Uncommon
+m003,Fire Elemental,Elemental,120,25,Water,Rare
+m004,Ancient Dragon,Dragon,500,80,None,Legendary

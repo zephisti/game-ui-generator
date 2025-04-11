@@ -1,0 +1,6 @@
+slot,type,occupied,item_id
+1,Weapon,true,001
+2,Armor,true,005
+3,Accessory,true,003
+4,Consumable,true,002
+5,Empty,false,

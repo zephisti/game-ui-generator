@@ -1,0 +1,6 @@
+id,name,type,rarity,damage,affixes,tooltip
+001,Rusty Sword,Weapon,Common,3-7,,"A basic blade, often found among scavengers."
+002,Healing Potion,Consumable,Common,,,Restores a small amount of health.
+003,Gold Ring,Accessory,Rare,,+10 Luck,A delicate ring that gleams with energy.
+004,Magic Scroll,Scroll,Rare,,+5% Fire Resist,A scroll imbued with magical potential.
+005,Ancient Crown,Helmet,Epic,,+20 Intellect,"Crown of a forgotten king, humming with power."
