@@ -38,26 +38,29 @@ async function generateFromPrompt() {
   const prompt = document.getElementById("userPrompt").value;
   if (!prompt || !parsedCSV) return alert("Please upload a CSV and enter a prompt.");
 
-  const fullPrompt = `Using the following CSV schema, generate a UI in HTML (with minimal inline CSS) for a browser-based game:\nCSV:\n${parsedCSV}\n\nPrompt: ${prompt}`;
+  const fullPrompt = `Using the following CSV schema, generate UI elements in HTML (with minimal inline CSS) for a browser-based game:\nCSV:\n${parsedCSV}\n\nPrompt: ${prompt}`;
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer YOUR OPEN AI KEY HERE` // <-- Replace this with your actual key or inject via environment
+      "x-goog-api-key": `YOUR GEMINI API KEY HERE` // <-- Replace this with your actual key or inject via environment
     },
     body: JSON.stringify({
-      model: "gpt-4",
-      messages: [
-        { role: "system", content: "You are a UI generator assistant for a game dev toolkit." },
-        { role: "user", content: fullPrompt }
+      contents: [
+        {
+          parts: [
+            {
+              text: `You are a UI generator assistant for a game dev toolkit. ${fullPrompt}`,
+            },
+          ],
+        },
       ],
-      temperature: 0.4
     })
   });
 
   const result = await response.json();
-  const uiHTML = result.choices?.[0]?.message?.content || "No response from GPT.";
+  const uiHTML = result.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
   document.getElementById("preview").innerHTML = uiHTML;
 }
 
@@ -72,7 +75,7 @@ function exportHTML() {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-}  
+}
 
 // Trigger prompt suggestions when dropdown changes
 document.addEventListener("DOMContentLoaded", () => {
