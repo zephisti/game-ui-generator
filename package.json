@@ -1,0 +1,16 @@
+{
+  "name": "game-ui-generator",
+  "version": "1.0.0",
+  "description": "A data-driven, AI-powered UI generator for browser-based RPGs, clickers, and loot games. Build dynamic inventory panels, stat sheets, monster logs, and more — just by uploading a CSV and giving it a prompt.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
