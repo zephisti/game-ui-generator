@@ -1,6 +1,14 @@
 // Parses uploaded CSV, sends prompt + data to OpenAI, renders output
 let parsedCSV = "";
 
+// Basic sanitizer to strip out <script> tags in case DOMPurify is unavailable
+function sanitizeHTML(html) {
+  if (window.DOMPurify) {
+    return window.DOMPurify.sanitize(html);
+  }
+  return html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
+}
+
 function parseCSV() {
   const fileInput = document.getElementById("csvFile");
   if (!fileInput.files.length) return alert("Please upload a CSV file.");
@@ -61,7 +69,8 @@ async function generateFromPrompt() {
 
   const result = await response.json();
   const uiHTML = result.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.";
-  document.getElementById("preview").innerHTML = uiHTML;
+  const sanitizedHTML = sanitizeHTML(uiHTML);
+  document.getElementById("preview").innerHTML = sanitizedHTML;
 }
 
 function exportHTML() {
