@@ -1,4 +1,4 @@
-// Parses uploaded CSV, sends prompt + data to OpenAI, renders output
+// Parses uploaded CSV, sends prompt + data to Gemini, renders output
 let parsedCSV = "";
 
 function parseCSV() {
